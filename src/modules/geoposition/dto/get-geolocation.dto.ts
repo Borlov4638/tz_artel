@@ -1,6 +1,6 @@
 import { IsIP } from 'class-validator';
 
-export class getGeolocationDTO {
+export class GetGeolocationDTO {
     @IsIP()
     ip: string;
 }

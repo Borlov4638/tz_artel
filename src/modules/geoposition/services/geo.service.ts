@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import * as geoip from 'geoip-lite';
-import { GeolocationNotion } from './types/geoip-response.type';
+import { GeolocationNotion } from '../types/geoip-response.type';
 
 @Injectable()
 export class GeoService {
@@ -16,10 +16,10 @@ export class GeoService {
 
     private mapLocationResponse(ipResponse: geoip.Lookup): GeolocationNotion {
         return {
-            lat: ipResponse.ll[0].toString(),
-            lng: ipResponse.ll[1].toString(),
-            country: ipResponse.country,
-            city: ipResponse.city,
+            lat: ipResponse?.ll?.[0]?.toString(),
+            lng: ipResponse?.ll?.[1]?.toString(),
+            country: ipResponse?.country,
+            city: ipResponse?.city,
         };
     }
 }
